@@ -5,7 +5,7 @@ const MONGO_URI='mongodb+srv://Anaskiani0:mongodb-mongoose@cluster0.ktef5ud.mong
 
 /** 1) Install & Set up mongoose */
 const mongoose = require('mongoose');
-mongoose.connect(MONGO_URI);
+mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // let Person;
 const Schema = mongoose.Schema;
