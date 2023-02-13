@@ -9,12 +9,12 @@ mongoose.connect(MONGO_URI);
 
 // let Person;
 const Schema = mongoose.Schema;
-const PersonSchema = new Schema({
+const personSchema = new Schema({
   name: { type: String, required: true },
   age: Number, 
   favouriteFood: [String]
 });
-const Person = mongoose.model("Person", PersonSchema)
+const Person = mongoose.model("Person", personSchema)
 
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
