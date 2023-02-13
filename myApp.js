@@ -7,7 +7,14 @@ const MONGO_URI='mongodb+srv://Anaskiani0:mongodb-mongoose@cluster0.ktef5ud.mong
 const mongoose = require('mongoose');
 mongoose.connect(MONGO_URI);
 
-let Person;
+// let Person;
+const Schema = mongoose.Schema;
+const PersonSchema = new Schema({
+  name: { type: String, required: true },
+  age: Number, 
+  favouriteFood: [String]
+});
+const Person = mongoose.model("Person", PersonSchema)
 
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
