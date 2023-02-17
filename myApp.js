@@ -37,8 +37,8 @@ const createAndSavePerson = (done) => {
   });
   AnasKiani.save(function (err, data) {
     if (err) return console.log(err);
+    done(null, data);
   });
-  done(null, data);
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
