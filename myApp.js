@@ -1,20 +1,24 @@
-require('dotenv').config();
-const MONGO_URI='mongodb+srv://Anaskiani0:mongodb-mongoose@cluster0.ktef5ud.mongodb.net/?retryWrites=true&w=majority';
+require("dotenv").config();
+const MONGO_URI =
+  "mongodb+srv://Anaskiani0:mongodb-mongoose@cluster0.ktef5ud.mongodb.net/?retryWrites=true&w=majority";
 /** # MONGOOSE SETUP #
 /*  ================== */
 
 /** 1) Install & Set up mongoose */
-const mongoose = require('mongoose');
-mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+const mongoose = require("mongoose");
+mongoose.connect(MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 // let Person;
 const Schema = mongoose.Schema;
 const personSchema = new Schema({
   name: { type: String, required: true },
   age: Number,
-  favoriteFoods: [String]
+  favoriteFoods: [String],
 });
-let Person = mongoose.model('Person', personSchema);
+let Person = mongoose.model("Person", personSchema);
 
 // let usefulProgrammer = function(done) {
 //   return new Person({
@@ -26,7 +30,15 @@ let Person = mongoose.model('Person', personSchema);
 //   done(nll, result);
 // };
 const createAndSavePerson = (done) => {
-  done(null /*, data*/);
+  let AnasKiani = new Person({
+    name: "AnasKiani",
+    age: 19,
+    favoriteFoods: ["cheese burger", "cheezious pizza"],
+  });
+  Person.save(function (err, data) {
+    if (err) return console.log(err);
+    done(null, data);
+  });
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
