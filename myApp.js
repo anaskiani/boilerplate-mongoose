@@ -1,4 +1,5 @@
-require("dotenv").config();
+ import createAndSavePerson from "./server"
+ require("dotenv").config();
 const MONGO_URI =
   "mongodb+srv://Anaskiani0:mongodb-mongoose@cluster0.ktef5ud.mongodb.net/?retryWrites=true&w=majority";
 /** # MONGOOSE SETUP #
